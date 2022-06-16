@@ -1,0 +1,39 @@
+
+  <%= form_for @lieu, url: {action: :create} do |f| %>
+
+    <div class="container">
+      <h4>Ajouter votre lieu à visiter en egypte : </h4>
+      <p>
+        <%= "<div class=\"alert alert-danger\">#{@lieu.errors.full_messages.first}</div>".html_safe if @lieu.errors.any? %>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-12">
+            <label class="control-label">Nom Lieu</label>
+            <%= f.text_field :NomLieu, :class => "form-control" %>
+          </div>
+
+          <div class="col-md-12">
+            <label class="control-label">Description</label>
+            <%= f.text_field :description, :class => "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-12">
+            <label class="control-label">Adresse</label>
+            <%= f.text_field :situation, :class => "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      </p>
+    </div>
+    <div class="container">
+      <%= link_to 'Retour', { controller: 'lieu', action: 'index'}, class: 'btn btn-outline-secondary'%>
+      <%= f.submit 'Créer le lieu', :class => "btn btn-primary" %>
+    </div>
+
+
+  <% end %>
